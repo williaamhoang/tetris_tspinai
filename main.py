@@ -3,11 +3,13 @@ import sys
 from grid import Grid
 
 # Game constants
-WINDOW_WIDTH = 300
-WINDOW_HEIGHT = 600
 GRID_WIDTH = 10
 GRID_HEIGHT = 20
 CELL_SIZE = 30
+
+# Calculate window dimensions
+WINDOW_WIDTH = GRID_WIDTH * CELL_SIZE + 300
+WINDOW_HEIGHT = GRID_HEIGHT * CELL_SIZE
 
 def main():
     pygame.init()
@@ -25,7 +27,7 @@ def main():
                 running = False # Exit game loop if window is closed
 
         # Draw the grid
-        grid.draw(screen)
+        grid.draw(screen, offset_x=150)
 
         # Update the display
         pygame.display.flip()

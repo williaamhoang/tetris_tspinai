@@ -11,11 +11,11 @@ class Grid:
         # height = number of blocks vertically
         # cell_size = size of each block in pixels
 
-        self.width = width
+        self.width = width  
         self.height = height 
         self.cell_size = cell_size
 
-    def draw(self, screen):
+    def draw(self, screen, offset_x=0):
         # Draws grid on screen
 
         # Fill the background
@@ -24,5 +24,10 @@ class Grid:
         # Draw grid lines
         for x in range(self.width):
             for y in range(self.height):
-                rect = pygame.Rect(x * self.cell_size, y * self.cell_size, self.cell_size, self.cell_size)
+                rect = pygame.Rect(
+                    x * self.cell_size + offset_x, 
+                    y * self.cell_size, 
+                    self.cell_size, 
+                    self.cell_size
+                )
                 pygame.draw.rect(screen, GRID_COLOR, rect, 1)
